@@ -18,7 +18,7 @@ struct Flow createFlow(int capacity) {
         newVector.capacity = capacity;
 
         //We initialize internal heap array and set to zero to avoid existing junk values.
-        newVector.newData = (int*) calloc(capacity, sizeof(Type));
+        newVector.newData = (Type*) calloc(capacity, sizeof(Type));
 
         //Binding between Flow content and heap memory buffer.
         newVector.data = newVector.newData;
@@ -55,7 +55,7 @@ void appendInFlow(struct Flow* vector, int value) {
 
         if(vector->newData == NULL) {
 
-            vector->newData = (int*) calloc(vector->capacity, sizeof(Type));
+            vector->newData = (Type*) calloc(vector->capacity, sizeof(Type));
 
             for (int i = 0; i < DEFAULT_SIZE; i++) {
 
