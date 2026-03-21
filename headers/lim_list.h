@@ -1,18 +1,20 @@
 #ifndef LIM_LIST_H_   /* Include guard */
 #define LIM_LIST_H_
 
+#include <stdbool.h>
+
 typedef int Type;
 
 
-typedef struct IntNode {
-    struct IntNode* previous;
-    struct IntNode* next;
+typedef struct Node {
+    struct Node* previous;
+    struct Node* next;
     Type value;
-} IntNode;
+} Node;
 
 typedef struct List {
-    IntNode* head;
-    IntNode* tail;
+    Node* head;
+    Node* tail;
     int size;
 } List;
 
@@ -20,7 +22,9 @@ typedef struct List {
 struct List createList();
 
 // Append in List
-void appendList(struct List* list, Type value);
+bool appendInList(struct List* list, Type value);
+
+bool insertInList(List* list, int index, Type value);
 
 // Get at specific index with bounds checking
 Type atListIndex(List* list, int index);
