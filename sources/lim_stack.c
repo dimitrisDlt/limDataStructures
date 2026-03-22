@@ -15,15 +15,17 @@ void pushInStack(Stack* stack, Type value) {
 
 	if(stack->head == NULL) {
 
+		stack->size = 0;
+
 		stack->head = malloc(sizeof(Node));
 		stack->head->value = value;
-		stack->head->next = NULL;
+		stack->head->previous = NULL;
 	}
 	else {
 
 		Node* newNode = malloc(sizeof(Node));
 		newNode->value = value;
-		newNode->next = stack->head;
+		newNode->previous = stack->head;
 		stack->head = newNode;
 	}
 
@@ -43,7 +45,7 @@ Type popFromStack(Stack* stack) {
 
 	if(stack->size > 1) {
 
-		Node* newHead = stack->head->next;
+		Node* newHead = stack->head->previous;
 
 		free(stack->head);
 
