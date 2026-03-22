@@ -3,11 +3,11 @@
 #include <stdbool.h>
 #include <stdlib.h>
 
-typedef int Type;
+typedef void* Type;
 
 
 typedef struct Node {
-    struct Node* next;
+    struct Node* previous;
     Type value;
 } Node;
 
