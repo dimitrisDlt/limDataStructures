@@ -30,9 +30,24 @@ A simple stack struct with operations like push, pop, and get.
 
 ## Usage
 
-This implementation aims to be pure, without using macros or weird void* constructs. The drawback is that the structs are typed, which means that for each new type
-you will need to create the appropriate files and rename them. To make things easier, in each header file in the beginning I added a typedef instruction defining the word
-<b>Type</b>. So, if you need for example to create a FloatFlow or a FloatList, just change this typedef to float. Then you only have to rename the struct and its functions, which
-is easy by using find and replace in your editor, e.g. renaming Flow to CharFlow.
+This implementation aims to be pure, without using macros (for now). The drawback is that the structs use the void* internal type, which means that you have to be careful
+with casting the void pointer to your desired type.
+
+For example:
+
+```
+Flow intVector = createFlow(20); // Initial capacity as argument
+
+int newInt = 14;
+
+appendInFlow(&intVector, &newInt);
+
+int secondNum = *((int*) atFlowIndex(&intVector, 0); // You have to cast to int pointer and then dereference it. 
+
+```
+
+To make things easier, in each header file in the beginning I added a typedef instruction defining the word
+<b>Type</b> with void* as default. So, if you need for example to create a FloatFlow or a FloatList, just change this typedef to float. Then you only have to rename the
+struct and its functions, which is easy by using find and replace in your editor, e.g. renaming Flow to CharFlow.
 
 ### More data structures will come in the future!
