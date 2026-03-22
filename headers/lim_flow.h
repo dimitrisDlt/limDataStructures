@@ -5,7 +5,7 @@
 
 #define DEFAULT_SIZE 100
 
-typedef int Type;
+typedef void* Type;
 
 typedef struct Flow {
     Type* data;
