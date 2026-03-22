@@ -3,8 +3,7 @@
 
 #include <stdbool.h>
 
-typedef int Type;
-
+typedef void* Type;
 
 typedef struct Node {
     struct Node* previous;
